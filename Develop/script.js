@@ -8,7 +8,7 @@ function genreratePassword() {
 
   var passLength = prompt("How long do you want your password to be? It should be no less than 8 characters and more than 128 characters.");
 
-}
+} 
 
 
 // Write password to the #password input
