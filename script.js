@@ -9,18 +9,22 @@ var generateBtn = document.querySelector("#generate");
 
 // Function 'randomSelector' is using min and max retrieve items in the array from the lowest to the highest values.
 // Function 'randomSelector' and function 'randomItem' selects random characters from the variable list(s).
-function randomSelector(min, max) {
+function randomSelector(min, max) { 
   if (!max) {
-    max = min
-    min = 0
+    max = min;
+    min = 0;
   }
-  var random = Math.random();
+  
+   var random = Math.random();
   return Math.floor(min * (1 - random) + random * max);
 
 }
 
-function randomItem(list) {
-  return list[randomSelector(list.length)];
+function randomItem(inputArray) {
+  // Get a random number from 0 to inputArray length
+  var randomNumber = randomSelector(inputArray.length);
+  // Grab element from the input array based on what the randomNumber generated
+  return inputArray[randomNumber];
 }
 
 function generatePassword() {
@@ -80,10 +84,11 @@ function generatePassword() {
 
   var passwordCharacters = ""  
 
-  // 'for loop' that selected a random character (characterItem) from the selected lists (listArray) and adds them to an empty string (passwordCharacters) using '+='.
+  // 'for loop' that selects a random character (characterItem) from the selected lists (listArray).
   for (var i = 0; i < passLength; i++) {
     var listArray = randomItem(chosenCharacters);
     var characterItem = randomItem(listArray);
+    // Empty string for password (passwordCharacters) adding on the selected character (characterItem) onto itself.
     passwordCharacters += characterItem;
   }
 
